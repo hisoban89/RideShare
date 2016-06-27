@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html ng-app="userApp"> 
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Ride Share</title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <link rel="stylesheet" href="/css/bootstrap.css" />
+      <link rel="stylesheet" href="/css/style.css" />
+  </head>
+
+  <body>
+
+    <div class="header clearfix">
+      <h4 class="loginHeading">Login</h4>
+    </div>
+
+      <div class="container">
+        
+
+        <!-- <div class="header clearfix">
+          <h4 class="loginHeading">Login</h4>
+        </div> -->
+          <div class="headerImg"> 
+              <img src="/images/login/login_logo.png" alt="rideShare" class="img-responsive center-block">
+          </div>
+
+        <div class="row top-buffer"></div>
+
+
+        <div class="headerImg"> 
+              <img src="/images/login/driverLog_icons.png" alt="rideShare" class="img-responsive center-block">
+          </div>
+
+        <div class="row">
+            <div id="small-img" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
+                <!-- <ul>
+                    <li style="margin-left:170px;">
+                        <img src="/images/login/userLogActive_icon.png" alt="rideShare" class="img-responsive inline-block">
+                    </li>
+                    <li>
+                        <img src="/images/login/or.png" alt="rideShare1" class="img-responsive inline-block">
+                    </li>
+                    <li>
+                        <img src="/images/login/driverLog_icon.png" alt="rideShare1" class="img-responsive inline-block">
+                    </li>
+                </ul> -->
+            </div>
+        </div>
+
+
+      <div ng-controller="navigationController">
+       
+        <form ng-submit="logUserIn()">
+          <div class="row top-buffer"></div>
+          <div class="row top-buffer"></div>
+
+          <div class="form-group">
+            <input type="text" class="register-input" placeholder="User name" ng-model="login.uname"></input>
+          </div>
+          <div class="row top-buffer"></div>
+          <div class="form-group">
+            <input type="text" class="register-input" placeholder="Password" ng-model="login.password"></input>
+          </div>
+
+          <div class="row top-buffer"></div>
+          <div class="row top-buffer"></div>
+          
+          <button type="submit" class="btn btn-info btn-block">Login</button>
+        </form>
+
+        <div class="row top-buffer"></div>
+
+        <a href="#">Forgot Password?</a>
+
+        <div class="row top-buffer"></div>
+        
+        <button type="submit" onclick="window.location.href = '/register'" class="btn btn-warning btn-block">Register</button>
+
+      </div>
+
+    </div> <!-- End container div -->
+
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-resource.js"></script>
+
+      <script type="text/javascript" src="/js/app.js"></script>
+
+      <!-- <script type="text/javascript" src="/js/controllers/users-controller.js"></script> -->
+      <script type="text/javascript" src="/js/navigation/navigation-controller.js"></script>
+  </body>
+</html>
+
+<!-- https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js -->
