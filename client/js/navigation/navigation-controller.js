@@ -39,11 +39,7 @@ app.controller('navigationController', ['$scope', '$http', '$resource', '$locati
             localStorage.setItem('User-Data', JSON.stringify(response));
             $scope.loggedIn = true;
 
-            //window.location = response['/map'];
             window.location.href = '/map';
-            //$location.path();
-            //$location.path('/');
-
 
         }).error(function(error){
             console.error(error);

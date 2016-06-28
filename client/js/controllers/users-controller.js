@@ -23,6 +23,8 @@ app.controller('usersController', ['$scope', '$resource', function ($scope, $res
       $scope.uname = '';
       $scope.password = '';
     });
+    window.location.href = '/login';
+    alert('Successfully Registered.');
   }
 
   

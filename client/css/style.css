@@ -16,8 +16,8 @@ body {
 
 /* Custom page header */
 .header {
-  padding-bottom: 20px;
-  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 0px;
+  border-bottom: 0px solid #e5e5e5;
 }
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
@@ -72,7 +72,7 @@ body {
   }
   /* Space out the masthead */
   .header {
-    margin-bottom: 30px;
+    margin-bottom: -1px;
   }
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
@@ -106,8 +106,6 @@ footer {
     width: 55%;
 }
 
-
-
 .register-input {
     display: block;
     width: 100%;
@@ -117,6 +115,7 @@ footer {
     background: none;
     border: 0;
     border-bottom: 2px solid #808080;
+    color:white;
 }
 
 .row li {
@@ -135,7 +134,6 @@ img {
 
 .top-buffer { margin-top:20px; }
 
-/*Edited*/
 
 .container-fluid {
   background-color: #333;
@@ -148,4 +146,57 @@ img {
 
 .navbar-brand {
   text-align: center;
+}
+
+.myLocationLable {
+  text-align: center;
+  color: white;
+}
+
+.destinationLable {
+  text-align: center;
+  color: white;
+}
+
+.header2 {
+  background-color: #20252d;
+}
+
+.map-responsive{
+  overflow:hidden;
+  padding-bottom:56.25%;
+  position:relative;
+  height:0;
+}
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+
+/*navigation*/
+
+#my-navigation {
+  background-color: rgba(51,51,51,.95);
+  color: #fff;
+  text-align: center;
+}
+
+#my-navigation p {
+  padding: 12px;
+  /*border-bottom: 1px dotted #eee;*/
+}
+
+.btn {
+  background-color: rgba(255,255,255,0);
+  /*border: 0;*/
+  /*border-bottom: 3px solid #D870A9;*/
+  /*border-radius: 5px;*/
+  padding: 0px 0px;
+  /*color: #fff;*/
+  cursor: pointer;
+  /*margin: 0 auto;*/
+  margin-top: -57px;
 }
