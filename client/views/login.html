@@ -20,32 +20,28 @@
       <div class="container">
         
 
-        <!-- <div class="header clearfix">
-          <h4 class="loginHeading">Login</h4>
-        </div> -->
-          <div class="headerImg"> 
-              <img src="/images/login/login_logo.png" alt="rideShare" class="img-responsive center-block">
-          </div>
-
-        <div class="row top-buffer"></div>
-
-
         <div class="headerImg"> 
-              <img src="/images/login/driverLog_icons.png" alt="rideShare" class="img-responsive center-block">
-          </div>
+            <img src="/images/login/login_logo.png" alt="rideShare" class="img-responsive center-block">
+        </div>
 
-      <div ng-controller="navigationController">
-       
-        <form ng-submit="logUserIn()">
+        <div class="headerImg1"> 
+            <img src="/images/login/driverLog_icons.png" alt="rideShare" class="img-responsive center-block">
+        </div>
+
+      <div class="navigationController" ng-controller="navigationController">
+      
+        <form name="form" ng-submit="logUserIn()">
           <div class="row top-buffer"></div>
           <div class="row top-buffer"></div>
 
           <div class="form-group">
-            <input type="text" class="register-input" placeholder="User name" ng-model="login.uname"></input>
+            <input type="text" class="register-input" placeholder="User name" ng-model="login.uname" minlength="3" maxlength="20" ></input>
+            <!-- <span ng-show="form.uname.$dirty && form.username.$error.required" class="help-block">Username is required</span> -->
           </div>
           <div class="row top-buffer"></div>
           <div class="form-group">
-            <input type="text" class="register-input" placeholder="Password" ng-model="login.password"></input>
+            <input type="text" class="register-input" placeholder="Password" ng-model="login.password" minlength="3" maxlength="20"  ></input>
+          <!-- <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span> -->
           </div>
 
           <div class="row top-buffer"></div>

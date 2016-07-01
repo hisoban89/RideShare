@@ -17,6 +17,16 @@
 
       <link href="/css/iptools-jquery-offcanvas.css" rel="stylesheet" type="text/css">
 
+      <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map-responsive {
+        height: 100%;
+      }
+    </style>
       
   </head>
   <body>
@@ -46,22 +56,63 @@
     <section id="my-navigation" class="offcanvas">
       <div class="header2 clearfix">
           <img style="float:left" src="/images/navigation/navigation.png" alt="rideShare" class="img-responsive">
-          <h4 class="loginHeading">Username</h4>
-      </div> <br><br><br>
-      <img style="float:left" src="/images/navigation/edit.png" alt="rideShare" class="img-responsive">
-      <p>Edit Profile</p>
-      <img style="float:left" src="/images/navigation/history.png" alt="rideShare" class="img-responsive">
-      <p>History</p>
-      <img style="float:left" src="/images/navigation/settings.png" alt="rideShare" class="img-responsive">
-      <p>Settings</p>
-      <img style="float:left" src="/images/navigation/help.png" alt="rideShare" class="img-responsive">
-      <p>Help</p>
-      <img style="float:left" src="/images/navigation/about.png" alt="rideShare" class="img-responsive">
-      <p>About</p>
-      <img style="float:left" src="/images/navigation/logout.png" alt="rideShare" class="img-responsive">
-      <p>Logout</p>
+
+          <div ng-controller="usersController">
+            <h4 class="loginHeading">Hisoban{{$scope.user.uname}}</h4>
+            <!-- <h1>{{users.length}}</h1> -->
+          </div>
+        
+
+          <!-- <h4 class="loginHeading">Username</h4> -->
+      </div> <br>
+
+      <table style="width:100%" border="0">
+        <tr>
+          <td>
+            <img style="float:left;margin: 10px;" src="/images/navigation/edit.png" alt="rideShare" class="img-responsive"></td>
+          <td align="left"><p>Edit Profile</p></td> 
+        </tr>
+        <tr>
+          <td>
+            <img style="float:left;margin: 10px;" src="/images/navigation/history.png" alt="rideShare" class="img-responsive">
+          </td>
+          <td align="left"><p>History</p></td> 
+        </tr>
+        <tr>
+          <td>
+            <img style="float:left;margin: 10px;" src="/images/navigation/settings.png" alt="rideShare" class="img-responsive">
+          </td>
+          <td align="left"><p>Settings</p></td> 
+        </tr>
+        <tr>
+          <td>
+            <img style="float:left;margin: 10px;" src="/images/navigation/help.png" alt="rideShare" class="img-responsive">
+          </td>
+          <td align="left"><p>Help</p></td> 
+        </tr>
+        <tr>
+          <td>
+            <img style="float:left;margin: 10px;" src="/images/navigation/about.png" alt="rideShare" class="img-responsive">
+          </td>
+          <td align="left"><p>About</p></td> 
+        </tr>
+        <tr>
+          <td><img style="float:left;margin: 10px;" src="/images/navigation/logout.png" alt="rideShare" class="img-responsive" ng-submit=logOut()>
+          </td>
+          <td align="left">
+            <div ng-controller="navigationController">
+              <form ng-submit="logOut()">
+                <button style="margin-left: -6px;" class="logoutBtn" type="submit"><p class="logout">Logout</p></button>
+              </form>
+            </div>
+          </td> 
+        </tr>
+        
+      </table>
+
+
       <br><br>
-      <button class="offcanvas__trigger--close btn" data-offcanvas-close="my-navigation">&nbsp&nbspClose</button>
+      <button style="margin-left: -6px;" class="offcanvas__trigger--close btn" data-offcanvas-close="my-navigation">Close</button>
     </section>
     <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
     <script src="/css/iptools-jquery-offcanvas.min.js"></script>
@@ -111,18 +162,83 @@
       </div>
     </div>
 
-    <div class="container">
-      
+   <!--  <div class="container">     
       <div class="row">
-        <div class="map-responsive">
-          <iframe id="gmap_canvas" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d37680.25003816476!2d79.89291529211249!3d6.9325603694564215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2slk!4v1467021197664" width="600" height="450" frameborder="0" style="border:0" allowfullscreen>
+        <div class="map-responsive"> -->
+          <!-- <iframe id="gmap_canvas" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d37680.25003816476!2d79.89291529211249!3d6.9325603694564215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2slk!4v1467021197664" width="600" height="450" frameborder="0" style="border:0" allowfullscreen>
             
-          </iframe>
-        </div>
-      </div> <!-- End row div -->
+          </iframe> -->
+
+          
+
+    <!-- End Map -->
+          <!-- https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyCh_zPivIBegT1ll2UjT1zacc4zpDMSEYs -->
+
+        <!-- </div> -->
+      <!-- </div> End row div -->
 
       
-    </div> <!-- End container div -->
+    <!-- </div> End container div -->
+
+    <div id="map-responsive"></div>
+    <script>
+      // Note: This example requires that you consent to location sharing when
+      // prompted by your browser. If you see the error "The Geolocation service
+      // failed.", it means you probably did not give permission for the browser to
+      // locate you.
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map-responsive'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 15
+        });
+        var infoWindow = new google.maps.InfoWindow({map: map});
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Hisoban Location found.');
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+      }
+    </script>
+
+<!-- hiso virtusa -->
+<!--     <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh_zPivIBegT1ll2UjT1zacc4zpDMSEYs&callback=initMap">
+    </script>
+ -->
+<!-- hiso mob -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBek2QKJkAxIhJ6AHP1Mu0hMa_lGpN-mkg&callback=initMap">
+    </script>
+
+
+<!-- Asha Jayakody: -->
+    <!-- <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiC1RjhWDH1dOnSh4VLWrATO4yRuvhN1Y&callback=initMap">
+    </script> -->
+
+    
 
       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-resource.js"></script>
@@ -130,6 +246,7 @@
 
       <script type="text/javascript" src="/js/app.js"></script>
       <script type="text/javascript" src="/js/controllers/users-controller.js"></script>
+      <script type="text/javascript" src="/js/navigation/navigation-controller.js"></script>
 
   </body>
 </html>

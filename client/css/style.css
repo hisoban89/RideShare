@@ -1,4 +1,7 @@
 /* Space out content a bit */
+html, body, .container {
+    /*height:100%;*/
+}
 body {
   /*padding-top: 20px;*/
   padding-bottom: 20px;
@@ -102,9 +105,10 @@ footer {
 
 .headerImg {
     display: block;
-    margin: 0 auto;
+    margin: 47px auto;
     width: 55%;
 }
+
 
 .register-input {
     display: block;
@@ -112,10 +116,10 @@ footer {
     height: 38px;
     margin-top: 2px;
     font-weight: 500;
-    background: none;
-    border: 0;
+    background: transparent;
+    border: 0px solid;
     border-bottom: 2px solid #808080;
-    color:white;
+    color:black;
 }
 
 .row li {
@@ -189,14 +193,123 @@ img {
   /*border-bottom: 1px dotted #eee;*/
 }
 
-.btn {
+.offcanvas__trigger--open {
   background-color: rgba(255,255,255,0);
-  /*border: 0;*/
-  /*border-bottom: 3px solid #D870A9;*/
-  /*border-radius: 5px;*/
   padding: 0px 0px;
-  /*color: #fff;*/
   cursor: pointer;
-  /*margin: 0 auto;*/
   margin-top: -57px;
+}
+
+.offcanvas__trigger--close {
+  background-color: rgba(255,255,255,0);
+  padding: 0px 0px;
+  cursor: pointer;
+  margin-top: -57px;
+}
+
+.headerImg1 {
+  margin-top: -55px;
+}
+
+.logoutBtn {
+  background-color: rgba(255,255,255,0);
+  border: none;
+}
+
+#my-navigation {
+  width: 250px;
+}
+
+#HeadBar {
+    background-color: #ffffff;
+    height: 10%;
+    width: 100%;
+    position: relative;
+    display: block;
+}
+#HeadBar {
+    margin: 0px;
+    padding: 10px;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+
+
+
+
+
+
+
+
+
+/*Mobile Responsive*/
+
+
+/*@media only screen and (min-width:307px) and (max-width: 320px) {
+  #my-navigation {
+    width: 250px;
+  }
+}*/
+
+@media only screen and (max-width: 320px) {
+  #my-navigation {
+    width: 200px;
+  }
+}
+
+@media only screen and (max-height: 518px) {
+  
+  .headerImg {
+    width:50%;
+    margin-top: 24px;
+  }
+  .headerImg1 {
+    margin-top: -58px;
+    width: 201px;
+    margin-left: 40px;
+  }
+  .register-input {
+    height: 23px;
+  }
+  
+  .navigationController {
+        margin-top: -43px;
+  }
+}
+
+@media only screen and (max-height: 639px) {
+    
+  .headerImg {
+    width:50%;
+  }
+  .headerImg1 {
+    margin-top: -58px;
+    width: 201px;
+    margin-left: 40px;
+  }
+  .register-input {
+    height: 30px;
+  }
+  .form-group {
+    margin-bottom: 33px;
+  }
+
+
+  /* register page*/
+
+  .headerImgReg {
+    width: 80px;
+    margin: 0 auto -10px;
+
+  }
+
+  .top-buffer {
+    /*margin-top: 12px;*/
+  }
+
+
+
 }
