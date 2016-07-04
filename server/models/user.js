@@ -27,7 +27,9 @@ var UserSchema = mongoose.Schema({
 	},
 	password: {
 		type: String
-	}
+	},
+    hash: String,
+    salt: String
 });
 
 
@@ -37,8 +39,6 @@ var User = module.exports = mongoose.model('User', UserSchema);
 
 // =======================================================================
 
-// // Export the model schema
-// var User = module.exports = mongoose.model('User', UserSchema);
 
 // module.exports.createUser = function(newUser, callback){
 //     bcrypt.genSalt(10, function(err, salt) {
@@ -57,5 +57,18 @@ var User = module.exports = mongoose.model('User', UserSchema);
 // module.exports.getUserById = function(id, callback){
 //     User.findById(id, callback);
 // }
+
+
+
+ 
+
+
+
+
+
+
+
+
+
 
 // =======================================================================

@@ -118,8 +118,8 @@ app.post('/api/user/login', authenticationController.login);
 //REST API
 app.get('/api/users', usersController.list);
 app.post('/api/users', usersController.create);
-app.get('/api/users/get', usersController.getUsers);
-
+// app.get('/api/users/get', usersController.getUsers);
+app.get('/api/users/', usersController.getUserById);
 
 
 // Port
