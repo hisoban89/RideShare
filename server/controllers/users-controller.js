@@ -11,14 +11,14 @@ module.exports.create = function (req, res) {
   
   var user = new User(req.body);
 
-	bcrypt.genSalt(10, function(err, salt) {
-	    bcrypt.hash(user.password, salt, function(err, hash) {
-	        user.password = hash;
+	// bcrypt.genSalt(10, function(err, salt) {
+	//     bcrypt.hash(user.password, salt, function(err, hash) {
+	//         user.password = hash;
 	        //console.log(user.password);
 	        user.save(function (err, result) {
 		    	res.json(result);
-		  	});
-	    });
+		  	// });
+	    // });
 	});
 
 	// bcrypt.compare(user.password, hash, function(err, res, hash) {
@@ -27,23 +27,38 @@ module.exports.create = function (req, res) {
 
 }
 
-module.exports.list = function (req, res) {
-  User.find({}, function (err, results) {
+// module.exports.list = function (req, res) {
+//   User.find({}, function (err, results) {
 
-  	var userData = results[0];
-	//console.log(userData);
+//   	if(err){
+//   		res.error(err);
+//   	} else {
+//   		res.json(results);
+//   	}
+    
+//   });
+// }
 
-    res.json(results);
-  });
-}
 
-module.exports.getUserById = function(req, res){
-	User.findById({}, function (err, results) {
+module.exports.getUserById = function(uname, res){
 
-  	var userData = results[0];
-	console.log(userData);
+	//var user = new User(req.body);
 
-    res.json(results);
+	var query = { uname : uname };
+
+	console.log(query);
+
+	// User.findOne({uname:'hiso'}, function (err, result1) {
+	// User.find({uname:'hisoban'}, function (err, result1) {
+	User.find(query, function (err, result1) {
+		if(err){
+			res.error(err);
+		} else {
+			console.log(result1);
+
+    		res.json(result1);
+		}
+
   });
 }
 
@@ -62,6 +77,8 @@ module.exports.getUserById = function(req, res){
 
 
 // =====================================================
+
+
 
 // module.exports.comparePassword = function(candidatePassword, hash, callback){
 // 	bcrypt.compare(candidatePassword, hash, function(err, isMatch) {

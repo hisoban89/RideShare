@@ -25,7 +25,11 @@ module.exports.login = function (req, res){
             res.json({uname: req.body.uname,
                       _id: userData._id
                     });
-        } else {   
+        } else { 
+            // res.writeHead(302, {
+            //   'Location': './client/views/index.html'
+            // });
+            // res.end(); 
             console.log('Wrong username or password!!');
         }
     });

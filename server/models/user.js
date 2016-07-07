@@ -49,25 +49,9 @@ var User = module.exports = mongoose.model('User', UserSchema);
 //     });
 // }
 
-// module.exports.getUserByUname = function(uname, callback){
-//     var query = {uname: uname};
-//     User.findOne(query, callback);
-// }
-
 // module.exports.getUserById = function(id, callback){
 //     User.findById(id, callback);
 // }
-
-
-
- 
-
-
-
-
-
-
-
 
 
 
