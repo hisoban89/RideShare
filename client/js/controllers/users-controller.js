@@ -12,6 +12,8 @@ app.controller('usersController', ['$scope', '$resource', function ($scope, $res
 
   User.query(function (result1) {
     $scope.users = result1;
+
+    //console.log(result1);
   });
 
   $scope.users = [];

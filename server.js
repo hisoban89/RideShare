@@ -10,6 +10,7 @@ var express           = require('express'),
   	LocalStrategy 	  = require('passport-local').Strategy,
     usersController   = require('./server/controllers/users-controller'),
     authenticationController = require('./server/controllers/authentication-controller');
+    bookingController = require('./server/controllers/booking-controller');
 
     var path   = require('path');
     var routes = require('./server/routes/index');
@@ -116,9 +117,10 @@ app.use('/images', express.static(__dirname + '/client/images'));
 app.post('/api/user/login', authenticationController.login);
 
 //REST API
-// app.get('/api/users', usersController.list);
+// app.get('/api/userss', users.getUserById);
 app.get('/api/users', usersController.getUserById);
 app.post('/api/users', usersController.create);
+app.post('/api/booking', bookingController.booking);
 // app.get('/api/users/get', usersController.getUsers);
 // app.get('/api/users/', usersController.getUserById);
 

@@ -13,11 +13,16 @@ app.controller('navigationController', ['$scope', '$http', '$resource', '$locati
             $scope.loggedIn = true;
             
             window.location.href = '/map';
-            //console.log(localStorage);
+            console.log(localStorage);
         }).error(function(error){
             console.error(error);
+
         });
+        
     };
+
+    
+
     
     $scope.logOut = function () {
         localStorage.clear();
