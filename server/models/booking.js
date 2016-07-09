@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
 
-// Create User Schema
+// Create Booking Schema
 var BookingSchema = mongoose.Schema({
 	booking: {
         type: String,

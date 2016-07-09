@@ -26,6 +26,7 @@
       <script type="text/javascript" src="/js/app.js"></script>
       <script type="text/javascript" src="/js/controllers/users-controller.js"></script>
       <script type="text/javascript" src="/js/navigation/navigation-controller.js"></script>
+      <script type="text/javascript" src="/js/controllers/booking-controller.js"></script>
       <!-- ===================== -->
 
       <!-- ======================= -->
@@ -95,7 +96,7 @@
 
       
   </head>
-  <body ng-controller='usersController'>
+  <body>
 
   <div class="header clearfix">
     <h4 class="loginHeading">Drivers</h4>
@@ -123,7 +124,7 @@
       <div class="header2 clearfix">
           <img style="float:left" src="/images/navigation/navigation.png" alt="rideShare" class="img-responsive">
 
-          <div>
+          <div ng-controller='usersController'>
             <h1 ng-repeat="user in users">
               {{user.fname}}
             </h1>
@@ -244,17 +245,6 @@
     </div>
 
 
- <!--    <div >
-    <h1 id="length">Logged in user length is: {{users.length}}</h1>
-        <ul>
-          <li ng-repeat="user in users">
-            First Name : {{user.fname}}<br>
-            Last Name :{{user.lname}}<br>
-            User Name: {{user.uname}}<br>
-          </li>
-        </ul>
-    </div> -->
-
 
 <!-- ======================================= -->
 
@@ -267,18 +257,23 @@
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close">×</span>
-    <div align="center" >
+    <div align="center" ng-controller='usersController'>
     <img src="/images/login/userLog_icon.png" alt="rideShare" class="img-responsive center-block">
     <!-- <h1 id="length">Logged in user length is: {{users.length}}</h1> -->
         <ul>
           <li style="list-style-type: none;" ng-repeat="user in users">
             Driver First Name : {{user.fname}}<br>
             Driver Last Name : {{user.lname}}<br>
-
           </li>
         </ul>
     </div>
-    <button type="submit" class="btn btn-warning btn-block">Confirm</button>
+    <div ng-controller="bookingController">
+      <form ng-submit="createBooking()" name="myForm">
+        <input type="hidden" value="booked" class="register-input" ng-model="booking">
+        <button type="submit" class="btn btn-warning btn-block">Confirm</button>
+      </form>
+    </div>
+
   </div>
 
 </div>
@@ -503,7 +498,7 @@ function myFunction() {
         //marker.setPosition(pos);
         infoWindow.setPosition(pos);
         infoWindow.setContent('<ul><li ng-repeat="user in users">'+
-                                  'Hi {{ user.fname }} !!!<br> Please book your closest vehicle'+
+                                  'Hi user !!!<br> Please book your closest vehicle'+
                                 '</li>'+
                               '</ul>');
         // map.setCenter(pos);

@@ -14,6 +14,8 @@ module.exports.booking = function (req, res) {
 
     booking.save(function (err, result) {
     	res.json(result);
+
+    	console.log(result);
   	});
 		  	
 }

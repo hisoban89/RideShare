@@ -120,7 +120,7 @@ app.post('/api/user/login', authenticationController.login);
 // app.get('/api/userss', users.getUserById);
 app.get('/api/users', usersController.getUserById);
 app.post('/api/users', usersController.create);
-app.post('/api/booking', bookingController.booking);
+app.post('/api/bookings', bookingController.booking);
 // app.get('/api/users/get', usersController.getUsers);
 // app.get('/api/users/', usersController.getUserById);
 
