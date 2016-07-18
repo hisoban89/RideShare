@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var bcrypt = require('bcryptjs');
+var bcrypt   = require('bcryptjs');
 
 
 // module.exports = mongoose.model('User', {
@@ -8,8 +8,6 @@ var bcrypt = require('bcryptjs');
 //   uname: String,
 //   password: String
 // });
-
-// ==================================================================
 
 // Create User Schema
 var UserSchema = mongoose.Schema({
@@ -32,13 +30,9 @@ var UserSchema = mongoose.Schema({
     salt: String
 });
 
-
-
 // Export the model schema
 var User = module.exports = mongoose.model('User', UserSchema);
 
-// =======================================================================
-
-
-
-// =======================================================================
+User.getUserById = function(id, result){
+    User.findById(id, result);
+}

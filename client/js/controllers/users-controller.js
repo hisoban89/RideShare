@@ -5,15 +5,10 @@ app.controller('usersController', ['$scope', '$resource', function ($scope, $res
 
 
   var User   = $resource('/api/users');
-  // var Userid = $resource('/api/users/get');
-
   
   // Get all user
-
   User.query(function (result1) {
     $scope.users = result1;
-
-    //console.log(result1);
   });
 
   $scope.users = [];
@@ -45,6 +40,5 @@ app.controller('usersController', ['$scope', '$resource', function ($scope, $res
     window.location.href = '/login';
     alert('Successfully Registered.');
   }
-
   
 }]);

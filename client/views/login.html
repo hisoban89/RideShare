@@ -23,9 +23,11 @@
         <div class="headerImg"> 
             <img src="/images/login/login_logo.png" alt="rideShare" class="img-responsive center-block">
         </div>
-
+        <map name="a">
+          <area shape="rect" coords="70,140,185,12" href="#">
+        </map>
         <div class="headerImg1"> 
-            <img src="/images/login/driverLog_icons.png" alt="rideShare" class="img-responsive center-block">
+            <img src="/images/login/driverLog_icons.png" alt="rideShare" class="img-responsive center-block" usemap="#a">
         </div>
 
       <div class="navigationController" ng-controller="navigationController">
@@ -36,12 +38,10 @@
 
           <div class="form-group">
             <input type="text" class="register-input" placeholder="User name" ng-model="login.uname" minlength="3" maxlength="20" ></input>
-            <!-- <span ng-show="form.uname.$dirty && form.username.$error.required" class="help-block">Username is required</span> -->
           </div>
           <div class="row top-buffer"></div>
           <div class="form-group">
             <input type="Password" class="register-input" placeholder="Password" ng-model="login.password" minlength="3" maxlength="20"  ></input>
-          <!-- <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span> -->
           </div>
 
           <div class="row top-buffer"></div>
@@ -64,12 +64,7 @@
 
       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-resource.js"></script>
-
       <script type="text/javascript" src="/js/app.js"></script>
-
-      <!-- <script type="text/javascript" src="/js/controllers/users-controller.js"></script> -->
-      <script type="text/javascript" src="/js/navigation/navigation-controller.js"></script>
+      <script type="text/javascript" src="/js/service/navigation-controller.js"></script>
   </body>
 </html>
-
-<!-- https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js -->

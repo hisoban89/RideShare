@@ -2,7 +2,6 @@ var express           = require('express'),
     app               = express(),
     bodyParser        = require('body-parser'),
     mongoose          = require('mongoose'),
-    passport 		      = require('passport'),
     expressValidator  = require('express-validator'),
   	flash 			      = require('connect-flash'),
   	session 		      = require('express-session'),
@@ -17,23 +16,24 @@ var express           = require('express'),
     var users  = require('./server/routes/users');
     var cookieParser = require('cookie-parser');
 
+    var User = require('./server/models/user');
+
 mongoose.connect('mongodb://localhost:27017/ride-share');
 
 //app.use(bodyParser());
 app.use(bodyParser.json());
-//app.use(bodyParser.urlencoded({ extended: false }));
+
+
+
 
 // ==================================
-// app.use('/', routes);
-// app.use('/users', users);
-
-// // Set Static Folder
-// app.use(express.static(path.join(__dirname, 'client')));
-// app.use(express.static('client'));
-
-// global.appRoot = path.resolve(__dirname);
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(cookieParser());
 
 // ====================================
+
+
+
 
 // Index Page
 app.get('/', function (req, res) {
@@ -56,73 +56,26 @@ app.get('/map', function (req, res) {
 });
 
 
-
-// =====================================================================
-
-// // BodyParser Middleware
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(cookieParser());
-
-// // Express Session
-// app.use(session({
-//     secret: 'secret',
-//     saveUninitialized: true,
-//     resave: true
-// }));
+// ============================================
 
 
-// // Passport init
-// app.use(passport.initialize());
-// app.use(passport.session());
 
-// // Express Validator
-// app.use(expressValidator({
-//   errorFormatter: function(param, msg, value) {
-//       var namespace = param.split('.')
-//       , root    = namespace.shift()
-//       , formParam = root;
+// ============================================
 
-//     while(namespace.length) {
-//       formParam += '[' + namespace.shift() + ']';
-//     }
-//     return {
-//       param : formParam,
-//       msg   : msg,
-//       value : value
-//     };
-//   }
-// }));
-
-// // Connect Flash
-// app.use(flash());
-
-// // Global Vars
-// app.use(function (req, res, next) {
-//     res.locals.success_msg = req.flash('success_msg');
-//     res.locals.error_msg = req.flash('error_msg');
-//     res.locals.error = req.flash('error');
-//     res.locals.user = req.user || null;
-//     next();
-// });
-
-
-// ===========================================================================
 
 app.use('/js', express.static(__dirname + '/client/js'));
 app.use('/css', express.static(__dirname + '/client/css'));
 app.use('/images', express.static(__dirname + '/client/images'));
 
-//Authentication
-app.post('/api/user/login', authenticationController.login);
 
 //REST API
-// app.get('/api/userss', users.getUserById);
+app.post('/api/user/login', authenticationController.login);
 app.get('/api/users', usersController.getUserById);
 app.post('/api/users', usersController.create);
 app.post('/api/bookings', bookingController.booking);
-// app.get('/api/users/get', usersController.getUsers);
-// app.get('/api/users/', usersController.getUserById);
+
+// app.get('/api/usersid', user.getUserById);
+
 
 
 // Port
